@@ -44,5 +44,6 @@ foreach(BINDING ${BINDING_DIRS})
 	target_include_directories(${BINDING_TARGET_NAME} INTERFACE ${BINDING_INCLUDE_PATH})
 	# Create global variable containing libraries for this binding
 	set(BINDING_GLOBAL_REF "NUKLEAR_${BINDING}_LIBRARIES")
+	string(TOUPPER ${BINDING_GLOBAL_REF} BINDING_GLOBAL_REF)
 	set(${BINDING_GLOBAL_REF} ${BINDING_TARGET_NAME} CACHE INTERNAL "")
 endforeach()
