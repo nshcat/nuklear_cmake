@@ -41,5 +41,8 @@ foreach(BINDING ${BINDING_DIRS})
 	# Build include path
 	set(BINDING_INCLUDE_PATH "${CMAKE_CURRENT_LIST_DIR}/nuklear/demo/${BINDING}")
 	# Set include path as public dependency
-	target_include_directories(${BINDING_TARGET_NAME} INTERFACE ${BINDING_INCLUDE_PATH}) 
+	target_include_directories(${BINDING_TARGET_NAME} INTERFACE ${BINDING_INCLUDE_PATH})
+	# Create global variable containing libraries for this binding
+	set(BINDING_GLOBAL_REF "NUKLEAR_${BINDING}_LIBRARIES")
+	set(${BINDING_GLOBAL_REF} ${BINDING_TARGET_NAME} CACHE INTERNAL "")
 endforeach()
